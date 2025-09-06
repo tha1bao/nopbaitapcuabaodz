@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Find max of 3 numbers</h2>
+    <input type="number" id="a" placeholder="Enter a"><br>
+    <input type="number" id="b" placeholder="Enter b"><br>
+    <input type="number" id="c" placeholder="Enter c">
+
+    <button onclick="findMax()">Find Max</button>
+    <p id="result"></p>
+
+    <script>
+        function findMax() {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var c = parseInt(document.getElementById("c").value);
+            var max = a;// Giả sử a là số lớn nhất ban đầu
+
+            if (b > max) {// b > max thì gán max = b
+                max = b;
+            }
+            if (c > max) {// c > max thì gán max = c
+                max = c;
+            }
+
+            document.getElementById("result").innerText = "Max is: " + max;
+        }
+    </script>
+</body>
+
+</html>

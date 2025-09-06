@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Sắp xếp 3 số</h2>
+    <input type="number" id="a" placeholder="Nhập a"><br>
+    <input type="number" id="b" placeholder="Nhập b"><br>
+    <input type="number" id="c" placeholder="Nhập c">
+    <button onclick="sapXep()">Sắp xếp</button>
+    <p id="result"></p>
+
+    <script>
+        function sapXep() {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var c = parseInt(document.getElementById("c").value);
+
+
+            if (a > b) {
+                a = a + b;// Cộng hai số và gán cho a
+                b = a - b;// Lấy giá trị ban đầu của a gán cho b
+                a = a - b;// Lấy giá trị ban đầu của b gán cho a
+            }
+            if (a > c) {
+                a = a + c;// Cộng hai số và gán cho a
+                c = a - c;// Lấy giá trị ban đầu của a gán cho c
+                a = a - c;// Lấy giá trị ban đầu của c gán cho a
+            }
+            if (b > c) {
+                b = b + c;// Cộng hai số và gán cho b
+                c = b - c;// Lấy giá trị ban đầu của b gán cho c
+                b = b - c;// Lấy giá trị ban đầu của c gán cho b
+            }
+
+            document.getElementById("result").innerText = "Sau khi sắp xếp: a = " + a + ", b = " + b + ", c = " + c;
+        }
+    </script>
+</body>
+
+</html>

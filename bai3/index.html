@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Kiểm tra số cùng dấu</h2>
+    <input type="number" id="a" placeholder="Nhập a"><br>
+    <input type="number" id="b" placeholder="Nhập b"><br>
+    <button onclick="kiemTraCungDau()">Kiểm tra</button>
+    <p id="result"></p>
+    <script>
+        function kiemTraCungDau() {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+
+            if ((a >= 0 && b >= 0) || (a < 0 && b < 0)) {
+                document.getElementById("result").innerText = "Hai số cùng dấu";
+            } else {
+                document.getElementById("result").innerText = "Hai số khác dấu";
+            }//em đang không biết cmt như nào cho TH này =(((
+        }   
+    </script>
+</body>
+
+</html>
