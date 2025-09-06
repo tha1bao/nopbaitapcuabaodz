@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Hoán vị 2 số</h2>
+
+    <input type="number" id="a" placeholder="Nhập a"><br>
+    <input type="number" id="b" placeholder="Nhập b">
+    <button onclick="swap()">Hoán vị</button>
+    <p id="result"></p>
+    <script>
+        function swap() {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+
+            a = a + b;// Cộng hai số và gán cho a
+            b = a - b;// Lấy giá trị ban đầu của a gán cho b
+            a = a - b;// Lấy giá trị ban đầu của b gán cho a
+
+            document.getElementById("result").innerText = "Sau khi hoán vị: a = " + a + ", b = " + b;
+        }
+    </script>
+</body>
+
+</html>
