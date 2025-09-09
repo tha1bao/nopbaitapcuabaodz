@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Tính tiền điện</h2>
+    <input type="number" id="soKwh" placeholder="Nhập số kwh"><br>
+    <button onclick="hienThiTien()">Tính tiền</button>
+    <p id="result"></p>
+    <script>
+        function tinhTienDien(soKmwh) {
+            if (soKmwh <= 0) return 0;
+            if (soKmwh <= 50) return soKmwh * 1678;
+            if (soKmwh <= 100) return 50 * 1678 + (soKmwh - 50) * 1734;
+            if (soKmwh <= 200) return 50 * 1678 + 50 * 1734 + (soKmwh - 100) * 2014;
+            if (soKmwh <= 300) return 50 * 1678 + 50 * 1734 + 100 * 2014 + (soKmwh - 200) * 2536;
+            if (soKmwh <= 400) return 50 * 1678 + 50 * 1734 + 100 * 2014 + 200 * 2536 + (soKmwh - 400) * 2834;
+            return 50 * 1678 + 50 * 1734 + 100 * 2014 + 200 * 2536 + 100 * 2834 + (soKmwh - 400) * 2927;
+
+        }
+        function hienThiTien() {
+            var soKwh = parseFloat(document.getElementById("soKwh").value);
+
+            if (isNaN(soKwh) || soKwh < 0) {
+                document.getElementById("result").innerText = "Vui lòng nhập số Kwh hợp lệ";
+                return;
+            }
+
+            var tien = tinhTienDien(soKwh);
+            document.getElementById("result").innerText =
+                "Số tiền Điện là: " + tien.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        }
+    </script>
+</body>
+
+</html>

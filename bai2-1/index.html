@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Tính tiền taxi</h2>
+    <input type="number" id="soKm" placeholder="Nhập số km"><br>
+    <button onclick="hienThiTien()">Tính tiền</button>
+    <p id="result"></p>
+    <script>
+        function tinhTienTaxi(soKm) {
+            if (soKm <= 0) return 0;
+            if (soKm <= 1) return soKm * 15000;
+            if (soKm <= 5) return 15000 + (soKm - 1) * 13500;
+            if (soKm <= 120) return 15000 + 4 * 13500 + (soKm - 5) * 11000;
+            return (15000 + 4 * 13500 + 115 * 11000 + (soKm - 120) * 11000) * 0.9;
+        }
+        function hienThiTien() {
+            var soKm = parseFloat(document.getElementById("soKm").value);
+
+            if (isNaN(soKm) || soKm < 0) {
+                document.getElementById("result").innerText = "Vui lòng nhập số km hợp lệ";
+                return;
+            }
+
+            var tien = tinhTienTaxi(soKm);
+            document.getElementById("result").innerText =
+                "Số tiền taxi là: " + tien.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Chuyển số thành chữ</h2>
+    <input type="number" id="num" placeholder="Nhập số(0-9999)"><br>
+    <button onclick="hienThiKetQua()">Chuyển</button>
+    <p id="result"></p>
+    <script>
+        function numberToWords(num) {
+            const ones = ["", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười",
+                "mười một", "mười hai", "mười ba", "mười bốn", "mười lăm", "mười sáu", "mười bảy", "mười tám", "mười chín"];
+            const tens = ["", "", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi"];
+            const thousands = ["", "một nghìn", "hai nghìn", "ba nghìn", "bốn nghìn", "năm nghìn", "sáu nghìn", "bảy nghìn", "tám nghìn", "chín nghìn"];
+
+            if (num === 0) return "không";
+            if (num < 0 || num > 9999) return "Vui lòng nhập số trong khoảng từ 0 đến 9999";
+
+            let result = "";
+
+            if (Math.floor(num / 1000) > 0) {
+                result += thousands[Math.floor(num / 1000)] + " ";
+                num %= 1000;
+            }
+            if (Math.floor(num / 100) > 0) {
+                result += belowTwenty[Math.floor(num / 100)] + " trăm ";
+                num %= 100;
+            }
+            if (num >= 20) {
+                result += tens[Math.floor(num / 10)] + " ";
+                num %= 10;
+            }
+            if (num > 0) {
+                result += belowTwenty[num] + " ";
+            }
+
+            return result.trim();
+        }
+
+        function hienThiKetQua() {
+            var num = parseInt(document.getElementById("num").value);
+            if (isNaN(num)) {
+                document.getElementById("result").innerText = "Vui lòng nhập một số hợp lệ";
+                return;
+            }
+            var result = numberToWords(num);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Vẽ bảng cửu chương</h2>
+    <input type="number" id="n" placeholder="Nhập n"><br>
+    <button onclick="hienThiKetQua()">Vẽ bảng cửu chương</button>
+    <p id="result"></p>
+    <script>
+        function hienThiKetQua() {
+            var n = parseInt(document.getElementById("n").value);
+            if (isNaN(n) || n <= 0 || n > 10) {
+                document.getElementById("result").innerText = "Vui lòng nhập số nguyên dương từ 1 đến 10";
+                return;
+            }
+            var ketQua = "";
+            for (let i = 1; i <= 10; i++) {
+                ketQua += n + " x " + i + " = " + (n * i) + "<br>";
+            }
+            document.getElementById("result").innerHTML = ketQua;
+        }
+    </script>
+</body>
+
+</html>

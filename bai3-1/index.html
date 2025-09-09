@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>In n số Fibonaci đầu tiên</h2>
+    <input type="number" id="n" placeholder="Nhập n"><br>
+    <button onclick="hienThiKetQua()">In Fibonaci</button>
+    <p id="result"></p>
+    <script>
+        function fibo(n) {
+            if (n <= 1) return n;
+            return fibo(n - 1) + fibo(n - 2);
+        }
+
+        function genFibo(n, i = 0, result = []) {
+            if (i >= n) return result;
+            result.push(fibo(i));
+            return genFibo(n, i + 1, result);
+        }
+
+        function hienThiKetQua() {
+            var n = parseInt(document.getElementById("n").value);
+            if (isNaN(n) || n < 1) {
+                document.getElementById("result").innerText = "Vui lòng nhập số nguyên dương";
+                return;
+            }
+
+            var result = genFibo(n);
+            document.getElementById("result").innerText = result.join(", ");
+        }
+    </script>
+</body>
+
+</html>

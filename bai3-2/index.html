@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Đảo ngược số</h2>
+    <input type="number" id="num" placeholder="Nhập số"><br>
+    <button onclick="hienThiKetQua()">Đảo ngược</button>
+    <p id="result"></p>
+    <script>
+        function daoNguocSo(num, reversed = 0) {
+            if (num === 0) return reversed;
+            //12345 
+            reversed = reversed * 10 + (num % 10);
+            return daoNguocSo(Math.floor(num / 10), reversed);
+        }
+
+        function hienThiKetQua() {
+            var num = parseInt(document.getElementById("num").value);
+            if (isNaN(num)) {
+                document.getElementById("result").innerText = "Vui lòng nhập một số hợp lệ";
+                return;
+            }
+            var result = daoNguocSo(Math.abs(num));
+            document.getElementById("result").innerText = (num < 0 ? '-' : '') + result;
+        }
+    </script>
+</body>
+
+</html>
